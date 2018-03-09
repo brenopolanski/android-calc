@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.brenopolanski.calc.models.Calc;
 
@@ -33,15 +34,52 @@ public class CalcActivity extends AppCompatActivity {
     @OnClick(R.id.calc_sum)
     public void btnSumOnClick() {
         try {
-            int result = calc.sum(getNumInput1(), getNumInput2());
+            Integer result = calc.sum(getNumInput1(), getNumInput2());
             setResult(result);
         } catch (NumberFormatException num) {
             num.printStackTrace();
         }
     }
 
-    private void setResult(Integer result) {
-        this.result.setText(String.valueOf(result));
+    @OnClick(R.id.calc_minus)
+    public void btnMinusOnClick() {
+        try {
+            Integer result = calc.minus(getNumInput1(), getNumInput2());
+            setResult(result);
+        } catch (NumberFormatException num) {
+            num.printStackTrace();
+        }
+    }
+
+    @OnClick(R.id.calc_multiplication)
+    public void btnMultiplicationOnClick() {
+        try {
+            Integer result = calc.multiplication(getNumInput1(), getNumInput2());
+            setResult(result);
+        } catch (NumberFormatException num) {
+            num.printStackTrace();
+        }
+    }
+
+    @OnClick(R.id.calc_division)
+    public void btnDivisionOnClick() {
+        try {
+            BigDecimal result = calc.division(getNumInput1(), getNumInput2());
+            setResultDivision(result);
+        } catch (NumberFormatException num) {
+            num.printStackTrace();
+        } catch (ArithmeticException num) {
+            num.printStackTrace();
+            Toast.makeText(this, "Can't be split by zero!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void setResult(Integer res) {
+        result.setText(String.valueOf(res));
+    }
+
+    private void setResultDivision(BigDecimal res) {
+        result.setText(String.valueOf(res));
     }
 
     @NonNull
