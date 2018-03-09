@@ -27,39 +27,37 @@ public class CalcTest {
 
     @Test
     public void testSum() throws Exception {
-        double input1 = 1;
-        double input2 = 2;
-        double expected = 3;
-        double delta = 0.1;
-        double output;
+        int input1 = 1;
+        int input2 = 2;
+        int expected = 3;
+        int output;
 
         output = calc.sum(input1, input2);
-        assertEquals(expected, output, delta);
+        assertEquals(expected, output);
 
-        input1 = 5.5;
-        input2 = 0.3;
-        expected = 5.8;
+        input1 = 9;
+        input2 = 9;
+        expected = 18;
         output = 0;
 
         output = calc.sum(input1, input2);
-        assertEquals(expected, output, delta);
+        assertEquals(expected, output);
     }
 
-    @Test(expected = NullPointerException.class)
-    public void testSumNulls() throws NullPointerException {
-        calc.sum(Double.parseDouble(null), Double.parseDouble(null));
+    @Test(expected = NumberFormatException.class)
+    public void testSumNulls() throws NumberFormatException {
+        calc.sum(Integer.parseInt(null), Integer.parseInt(null));
     }
 
     @Test
     public void testMinus() throws Exception {
-        double input1 = 10;
-        double input2 = 5;
-        double expected = 5;
-        double delta = 0.1;
-        double output;
+        int input1 = 10;
+        int input2 = 5;
+        int expected = 5;
+        int output;
 
         output = calc.minus(input1, input2);
-        assertEquals(expected, output, delta);
+        assertEquals(expected, output);
 
         input1 = 8;
         input2 = 10;
@@ -67,35 +65,34 @@ public class CalcTest {
         output = 0;
 
         output = calc.minus(input1, input2);
-        assertEquals(expected, output, delta);
+        assertEquals(expected, output);
     }
 
-    @Test(expected = NullPointerException.class)
-    public void testMinusNulls() throws NullPointerException {
-        calc.minus(Double.parseDouble(null), Double.parseDouble(null));
+    @Test(expected = NumberFormatException.class)
+    public void testMinusNulls() throws NumberFormatException {
+        calc.minus(Integer.parseInt(null), Integer.parseInt(null));
     }
 
     @Test
     public void testMultiplication() throws Exception {
-        double input1 = 100;
-        double input2 = 2;
-        double expected = 200;
-        double delta = 0.1;
-        double output;
+        int input1 = 100;
+        int input2 = 2;
+        int expected = 200;
+        int output;
 
         output = calc.multiplication(input1, input2);
-        assertEquals(expected, output, delta);
+        assertEquals(expected, output);
     }
 
-    @Test(expected = NullPointerException.class)
-    public void testMultiplicationNulls() throws NullPointerException {
-        calc.multiplication(Double.parseDouble(null), Double.parseDouble(null));
+    @Test(expected = NumberFormatException.class)
+    public void testMultiplicationNulls() throws NumberFormatException {
+        calc.multiplication(Integer.parseInt(null), Integer.parseInt(null));
     }
 
     @Test
     public void testDivision() throws Exception {
-        double input1 = 88;
-        double input2 = 8;
+        int input1 = 88;
+        int input2 = 8;
         BigDecimal expected = new BigDecimal("11");
         BigDecimal output;
 
@@ -103,8 +100,8 @@ public class CalcTest {
         assertEquals(expected, output);
     }
 
-    @Test(expected = NullPointerException.class)
-    public void testDivisionNulls() throws NullPointerException {
-        calc.division(Double.parseDouble(null), Double.parseDouble(null));
+    @Test(expected = NumberFormatException.class)
+    public void testDivisionNulls() throws NumberFormatException {
+        calc.division(Integer.parseInt(null), Integer.parseInt(null));
     }
 }

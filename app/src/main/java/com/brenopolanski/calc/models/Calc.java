@@ -8,19 +8,19 @@ import java.math.MathContext;
  */
 
 public class Calc {
-    public double sum(double input1, double input2) {
+    public int sum(Integer input1, Integer input2) {
         return input1 + input2;
     }
 
-    public double minus(double input1, double input2) {
+    public int minus(Integer input1, Integer input2) {
         return input1 - input2;
     }
 
-    public double multiplication(double input1, double input2) {
+    public int multiplication(Integer input1, Integer input2) {
         return input1 * input2;
     }
 
-    public BigDecimal division(double input1, double input2) {
+    public BigDecimal division(Integer input1, Integer input2) {
         BigDecimal bigDecimalInput1 = new BigDecimal(input1);
         BigDecimal bigDecimalInput2 = new BigDecimal(input2);
 
