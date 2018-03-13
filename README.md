@@ -4,8 +4,6 @@
 
 ## Screenshots
 
-### Mobile
-
 | <img width="250" height="444" src="./demo/mobile-1.png"> | <img width="250" height="444" src="./demo/mobile-2.png"> | <img width="250" height="444" src="./demo/mobile-3.png"> |
 | :---: | :---: | :---: |
 | Home | Sum calc | Division calc |
